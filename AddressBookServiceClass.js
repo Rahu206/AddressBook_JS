@@ -10,6 +10,10 @@
 //importing another class file to the class file
 const PersonInfo = require("./PersonInfoData.js"); 
 const prompt = require('prompt-sync')();
+
+class AddressBookService {
+    personInfoList = new Array();
+    insert(personInfoList) {
 try{
     let personInfo = new PersonInfo();
     personInfo.firstName = prompt("Enter First Name : "); 
@@ -20,7 +24,13 @@ try{
     personInfo.zipNumber = prompt("Enter Zip : "); 
     personInfo.phoneNumberInput = prompt("Enter Phone Number : "); 
     personInfo.emailInput = prompt("Enter Email : "); 
-    console.log(personInfo.toString());
-} catch ( e ) {
-    console.error(e);
+    personInfoList.push(personInfo);
+
+            return personInfoList;
+        } catch ( e ) {
+            console.error(e);
+        }
+    }
 }
+
+module.exports = AddressBookService;

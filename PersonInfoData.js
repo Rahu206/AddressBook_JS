@@ -85,7 +85,6 @@ class PersonInfo {
             throw "State is Incorrect!";
         }
     }
-
     get stateName() {
         return this.state;
     }
@@ -105,7 +104,7 @@ class PersonInfo {
     }
 
     set phoneNumberInput( phoneNumber ) {
-        let nameRegex = RegExp('^(0|91)?[\\s][0-9]{10}$');
+        let nameRegex = RegExp('^[0-9+ ]{0,3}[0-9]{0,10}');
         if ( nameRegex.test( phoneNumber )) {
             this.phoneNumber = phoneNumber;
         }
@@ -119,7 +118,7 @@ class PersonInfo {
     }
 
     set emailInput( email ) {
-        let nameRegex = RegExp('^[A-Za-z0-9!#$%&*+\\\\=?`{|}~^-]+(?:\\.[A-Za-z!#$%&*+\\\\=?`{|}~^-]+)*@(?:([0-9-]{1}|[a-zA-Z]{3,5})\\.)+[a-zA-Z]{2,3}$');
+        let nameRegex = RegExp('^[a-zA-Z0-9+.-]+@[a-zA-Z0-9.]+$');
         if ( nameRegex.test( email )) {
             this.email = email;
         }

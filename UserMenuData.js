@@ -1,0 +1,11 @@
+const prompt = require('prompt-sync')();
+
+class UserMenu {
+    menu() {
+        console.log("Press 1 to insert contacts in Address Book");
+        console.log("Press 2 to display the list of Person Data");
+        console.log("Press 3 to exit");
+        return parseInt(prompt("Enter your choice : "));
+       }
+}
+module.exports = UserMenu;
