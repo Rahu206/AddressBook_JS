@@ -26,6 +26,10 @@ while( flag ) {
             personInfoList = addressBookService.deleteContact(personInfoList, personName);
             break; 
         case 5:
+            console.log("Number of contacts in the address book is : " +personInfoList.length);
+            console.log();
+            break;
+        case 6:
             flag = false;
             break;    
         default:
