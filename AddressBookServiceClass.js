@@ -15,6 +15,7 @@ class AddressBookService {
     personInfoList = new Array();
 
 insert(personInfoList) {
+    let found = false;
 try{
     let personInfo = new PersonInfo();
     personInfo.firstName = prompt("Enter First Name : "); 
@@ -25,12 +26,28 @@ try{
     personInfo.zipNumber = prompt("Enter Zip : "); 
     personInfo.phoneNumberInput = prompt("Enter Phone Number : "); 
     personInfo.emailInput = prompt("Enter Email : "); 
-    personInfoList.push(personInfo);
-            return personInfoList;
-        } catch ( e ) {
-            console.error(e);
+    if( personInfoList.length < 0 ) {
+        personInfoList.push(personInfo);
+    } else if ( personInfoList.length >= 0 ) {
+        personInfoList.forEach(element => {
+            if( (element.firstName === personInfo.firstName ) == true ) {
+                found = true;
+                return;
+            }
+        });
+        if( found == true ) {
+            console.log();
+            console.log("Duplicate entry exists!");
+        } else {
+            personInfoList.push(personInfo);
         }
     }
+
+    return personInfoList;
+} catch ( e ) {
+    console.error(e);
+}
+}
 
 editContact(personInfoList,firstname) {
     personInfoList.forEach(element => {
