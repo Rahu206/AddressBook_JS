@@ -17,6 +17,10 @@ while( flag ) {
             console.log(personInfoList);
             break;
         case 3:
+            let firstname = prompt("Enter the First Name of the Contact : ");
+            personInfoList = addressBookService.editContact(personInfoList, firstname);
+            break; 
+        case 4:
             flag = false;
             break;    
         default:
