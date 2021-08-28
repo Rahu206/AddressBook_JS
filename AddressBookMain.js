@@ -1,3 +1,4 @@
+const prompt = require('prompt-sync')();
 const UserMenu = require("./UserMenuData.js"); 
 const AddressBookService = require("./AddressBookServiceClass.js"); 
 
@@ -21,6 +22,10 @@ while( flag ) {
             personInfoList = addressBookService.editContact(personInfoList, firstname);
             break; 
         case 4:
+            let personName = prompt("Enter the First Name of the Contact : ");
+            personInfoList = addressBookService.deleteContact(personInfoList, personName);
+            break; 
+        case 5:
             flag = false;
             break;    
         default:

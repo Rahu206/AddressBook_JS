@@ -80,7 +80,18 @@ editContact(personInfoList,firstname) {
             }
         }
     });
+    console.log("Contact Edited Successfully!!!")
     return personInfoList;
+    }
+    deleteContact(personInfoList, firstname) {
+        personInfoList.forEach(element => {
+            if( (element.firstName === firstname) == true ) {
+                let index = personInfoList.indexOf(firstname);
+                personInfoList.splice(index, 1);
+            }
+        });
+        console.log("Contact Deleted Successfully!!!")
+        return personInfoList;
     }
 }
 
